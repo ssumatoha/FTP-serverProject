@@ -1,13 +1,11 @@
-from FileManagerClass import FileManager
-#  import os.path
 
-print('для получения справки о командах введите help')
-prog = FileManager()
-work_dir = 'dira'  # start directory
-prog.cd(work_dir)
+def start(prog):
+    print('для получения справки о командах введите help')
+    work_dir = 'dira'  # server start directory
+    prog.cd(work_dir)
 
-while True:
-    command = str(input('введите команду: '))
+
+def process(prog, command):
     if command == 'pwd':
         prog.pwd()
     elif command.split()[0] == 'mkdir':
@@ -37,8 +35,6 @@ while True:
         prog.ls()
     elif command == 'help':
         prog.help()
-    elif command == 'exit':
-        break
     else:
         print('Вы ввели недопустимое значение.\n \
         Если вам нужна справка, введите команду help')
