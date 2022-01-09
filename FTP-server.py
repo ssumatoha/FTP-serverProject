@@ -19,7 +19,7 @@ while True:
     data = conn.recv(1024)
     if not data:
         break
-    process(p, pickle.loads(data))
-    conn.send(data)
+    data_out = process(p, pickle.loads(data))
+    conn.send(pickle.dumps(data_out))
 
 conn.close()
